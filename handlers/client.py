@@ -12,7 +12,6 @@ from aiogram_calendar import (DialogCalendar, SimpleCalendar,
                               dialog_cal_callback, simple_cal_callback)
 # from aiogram_datepicker import Datepicker, DatepickerSettings
 from decouple import config
-from tomlkit import string
 from helpers.funcs import deep_get
 from keyboards import calendar_kb, client_kb
 
@@ -64,8 +63,8 @@ async def get_amount(msg: types.Message, state=FSMContext):
                                        reply_markup=await SimpleCalendar().start_calendar())  
   
 
-async def edit_msg(msg: types.Message, str: string):
-    await msg.edit_text(f'{str}')
+async def edit_msg(msg: types.Message, s: str):
+    await msg.edit_text(f'{s}')
   
     
 async def process_simple_calendar(callback_query: types.CallbackQuery, callback_data: dict, state=FSMContext):
