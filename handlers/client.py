@@ -71,7 +71,9 @@ async def process_simple_calendar(callback_query: types.CallbackQuery, callback_
     selected, date = await SimpleCalendar().process_selection(callback_query, callback_data)
     
     if selected:
+        today = date.today().strftime('%Y-%m-%d')
         selected_date = date.strftime("%Y-%m-%d")
+        selected_date = selected_date if selected_date <= today else today
         
         async with state.proxy() as data:
             await edit_msg(data['msg'], f'You selected {selected_date}, wait...',)
