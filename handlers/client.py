@@ -98,6 +98,8 @@ async def process_simple_calendar(callback_query: types.CallbackQuery, callback_
 async def cancel_handler(msg: types.Message, state: FSMContext):
     current_state = await state.get_state()
     
+    # logger.info(current_state)
+    
     if current_state is None:
         return
     
@@ -109,7 +111,7 @@ async def cancel_handler(msg: types.Message, state: FSMContext):
 
 def register_client_handlers(dp: Dispatcher):
     dp.register_message_handler(command_start, commands=['start']) 
-    dp.register_message_handler(cancel_handler, commands=['cancel'])
+    dp.register_message_handler(cancel_handler, commands=['cancel'], state='*')
     dp.register_message_handler(start_work, commands=['get_exchange_rates'], state=None)  
     dp.register_message_handler(get_currency, content_types='text', state=FSMClient.currency)  
     dp.register_message_handler(get_amount, 
