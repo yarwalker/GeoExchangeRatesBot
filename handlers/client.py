@@ -60,7 +60,8 @@ async def get_amount(msg: types.Message, state=FSMContext):
     
     async with state.proxy() as data:
         data['msg'] = await msg.answer("Please select a date: ", 
-                                       reply_markup=await SimpleCalendar().start_calendar())  
+                                       reply_markup=await SimpleCalendar().start_calendar(year=datetime.now().year,
+                                                                                          month=datetime.now().month))  
   
 
 async def edit_msg(msg: types.Message, s: str):
