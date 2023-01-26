@@ -1,10 +1,5 @@
 #!/usr/bin/env python3 
 
-import sys
-import os
-# jenkins exposes the workspace directory through env.
-sys.path.append(os.environ['WORKSPACE'])
-
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, executor
