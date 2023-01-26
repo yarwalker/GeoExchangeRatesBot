@@ -1,5 +1,6 @@
 #!/usr/bin/env python3 
 
+import sys
 # jenkins exposes the workspace directory through env.
 sys.path.append(os.environ['WORKSPACE'])
 
