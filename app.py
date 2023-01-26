@@ -1,3 +1,5 @@
+#!/usr/bin/env python3 
+
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, executor
